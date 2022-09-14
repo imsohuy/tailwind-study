@@ -1,11 +1,23 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import './App.css'
-
 import avatarAnisa from './assets/images/avatar-anisha.png'
 import avatarRichard from './assets/images/avatar-richard.png'
 import avatarShanai from './assets/images/avatar-shanai.png'
+import facebook from './assets/images/icon-facebook.svg'
+import instagram from './assets/images/icon-instagram.svg'
+import pinterest from './assets/images/icon-pinterest.svg'
+import twitter from './assets/images/icon-twitter.svg'
 import intro from './assets/images/illustration-intro.svg'
+import logoWhite from './assets/images/logo-white.svg'
 import logo from './assets/images/logo.svg'
+
+const btn = document.getElementById('menu-btn')
+const nav = document.getElementById('menu')
+
+btn.addEventListener('click', () => {
+  btn.classList.toggle('open')
+  nav.classList.toggle('flex')
+  nav.classList.toggle('hidden')
+})
 
 function App() {
   return (
@@ -15,7 +27,7 @@ function App() {
           <div class="pt-2">
             <img src={logo} alt="React Logo" />
           </div>
-          <div className="hidden md:flex space-x-12">
+          <div className="hidden md:flex space-x-6">
             <a href="#" class="hover:text-darkGrayishBlue">
               Pricing
             </a>
@@ -38,6 +50,29 @@ function App() {
           >
             Get started
           </a>
+          {/* Hamburger Icon */}
+          <button
+            id="menu-btn"
+            class="block hamburger md:hidden focus:outline-none"
+          >
+            <span class="hamburger-top"></span>
+            <span class="hamburger-middle"></span>
+            <span class="hamburger-bottom"></span>
+          </button>
+        </div>
+        {/* Mobile Menu */}
+        <div class="md:hidden">
+          <div
+            id="menu"
+            class="absolute flex-col items-center hidden self-end py-8 mt-10 space-y-6 
+            font-bold bg-white sm:w-auto sm:self-center left-6 right-6 drop-shadow-md"
+          >
+            <a href="#">Pricing</a>
+            <a href="#">Product</a>
+            <a href="#">About Us</a>
+            <a href="#">Careers</a>
+            <a href="#">Community</a>
+          </div>
         </div>
       </nav>
 
@@ -208,6 +243,101 @@ function App() {
           </div>
         </div>
       </section>
+      <section id="cta" className="bg-brightRed">
+        {/* flex container */}
+        <div className="container flex flex-col items-center justify-between px-6 py-24 mx-auto space-y-12 md:py-12 md:flex-row md:space-y-0">
+          {/* heading */}
+          <h2 className="text-5xl font-bold leading-tight text-center text-white md:text-4xl md:max-w-xl md:text-left">
+            Simplify how your team works today
+          </h2>
+          {/* button */}
+          <div>
+            <a
+              href=""
+              className="p-3 px-6 pt-2 text-brightRed bg-white rounded-full baseline hover:bg-gray-300 shadow-2xl"
+            >
+              Get started
+            </a>
+          </div>
+        </div>
+      </section>
+      {/* footer */}
+      <footer className="bg-veryDarkBlue">
+        {/* flex container */}
+        <div className="container flex flex-col-reverse justify-between px-6 py-10 mx-auto space-y-8 md:flex-row md:space-y-0">
+          {/* logo and social links container */}
+          <div class="flex flex-col-reverse items-center justify-between space-y-12 md:flex-col md:space-y-0 md:items-start">
+            <div class="mx-auto my-6 text-center text-white md:hidden">
+              Copyright &copy; 2022, All Rights Reserved
+            </div>
+            {/* logo */}
+            <div>
+              <img src={logoWhite} alt="" />
+            </div>
+            {/* social links container */}
+            <div className="flex justify-center space-x-4">
+              <a href="#">
+                <img src={facebook} alt="" className="h-8" />
+              </a>
+              <a href="#">
+                <img src={twitter} alt="" className="h-8" />
+              </a>
+              <a href="#">
+                <img src={instagram} alt="" className="h-8" />
+              </a>
+              <a href="#">
+                <img src={pinterest} alt="" className="h-8" />
+              </a>
+            </div>
+          </div>
+          {/* List Container */}
+          <div class="flex justify-around space-x-32">
+            <div class="flex flex-col space-y-3 text-white">
+              <a href="#" class="hover:text-brightRed">
+                Home
+              </a>
+              <a href="#" class="hover:text-brightRed">
+                Pricing
+              </a>
+              <a href="#" class="hover:text-brightRed">
+                Products
+              </a>
+              <a href="#" class="hover:text-brightRed">
+                About
+              </a>
+            </div>
+            <div class="flex flex-col space-y-3 text-white">
+              <a href="#" class="hover:text-brightRed">
+                Careers
+              </a>
+              <a href="#" class="hover:text-brightRed">
+                Community
+              </a>
+              <a href="#" class="hover:text-brightRed">
+                Privacy Policy
+              </a>
+            </div>
+          </div>
+          {/* Input Container */}
+          <div class="flex flex-col justify-between">
+            <form>
+              <div class="flex space-x-3">
+                <input
+                  type="text"
+                  class="flex-1 px-4 rounded-full focus:outline-none"
+                  placeholder="Updated in your inbox"
+                />
+                <button class="px-6 py-2 text-white rounded-full bg-brightRed hover:bg-brightRedLight focus:outline-none">
+                  Go
+                </button>
+              </div>
+            </form>
+            <div class="hidden text-white md:block">
+              Copyright &copy; 2022, All Rights Reserved
+            </div>
+          </div>
+        </div>
+      </footer>
     </>
   );
 }
