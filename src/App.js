@@ -10,15 +10,6 @@ import intro from './assets/images/illustration-intro.svg'
 import logoWhite from './assets/images/logo-white.svg'
 import logo from './assets/images/logo.svg'
 
-const btn = document.getElementById('menu-btn')
-const nav = document.getElementById('menu')
-
-btn.addEventListener('click', () => {
-  btn.classList.toggle('open')
-  nav.classList.toggle('flex')
-  nav.classList.toggle('hidden')
-})
-
 function App() {
   return (
     <>
@@ -53,7 +44,8 @@ function App() {
           {/* Hamburger Icon */}
           <button
             id="menu-btn"
-            class="block hamburger md:hidden focus:outline-none"
+            className="block hamburger md:hidden focus:outline-none"
+            onClick={() => this.classList.toggle("open")}
           >
             <span class="hamburger-top"></span>
             <span class="hamburger-middle"></span>
@@ -61,11 +53,15 @@ function App() {
           </button>
         </div>
         {/* Mobile Menu */}
-        <div class="md:hidden">
+        <div className="md:hidden">
           <div
             id="menu"
             class="absolute flex-col items-center hidden self-end py-8 mt-10 space-y-6 
             font-bold bg-white sm:w-auto sm:self-center left-6 right-6 drop-shadow-md"
+            onClick={() => {
+              this.classList.toggle("hidden")
+              this.classList.toggle("flex")
+            }}
           >
             <a href="#">Pricing</a>
             <a href="#">Product</a>
